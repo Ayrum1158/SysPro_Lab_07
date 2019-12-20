@@ -31,7 +31,7 @@ namespace SysPro_Lab_07
         {
         }
 
-        private void LoadButton_Click_1(object sender, EventArgs e)
+        private void LoadButton_Click(object sender, EventArgs e)
         {
             this.libraryTableAdapter.Fill(this.databaseDataSet.Library);
         }
@@ -39,8 +39,17 @@ namespace SysPro_Lab_07
         private void SaveButton_Click(object sender, EventArgs e)
         {
             this.libraryTableAdapter.Update(this.databaseDataSet);
-            SqlCommand cmdUpdateDB = new SqlCommand("INSERT INTO Library" + "(ID,FIO,Grupa) Values (@ID,@FIO,@Grupa)");
-)
+        }
+
+        private void DeleteRowButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int rowIndex = DBDataGridView.CurrentCell.RowIndex;
+                DBDataGridView.Rows.RemoveAt(rowIndex);
+                //this.libraryTableAdapter.Update(this.databaseDataSet);
+            }
+            catch (Exception) { }
         }
     }
 }

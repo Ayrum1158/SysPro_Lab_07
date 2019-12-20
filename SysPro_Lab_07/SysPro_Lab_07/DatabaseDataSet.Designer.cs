@@ -285,6 +285,10 @@ namespace SysPro_Lab_07 {
             
             private global::System.Data.DataColumn columnAuthor;
             
+            private global::System.Data.DataColumn columnPublisher;
+            
+            private global::System.Data.DataColumn columnPublished_date;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public LibraryDataTable() {
@@ -344,6 +348,22 @@ namespace SysPro_Lab_07 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PublisherColumn {
+                get {
+                    return this.columnPublisher;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Published_dateColumn {
+                get {
+                    return this.columnPublished_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -379,12 +399,14 @@ namespace SysPro_Lab_07 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LibraryRow AddLibraryRow(int Id, string Book, string Author) {
+            public LibraryRow AddLibraryRow(int Id, string Book, string Author, string Publisher, System.DateTime Published_date) {
                 LibraryRow rowLibraryRow = ((LibraryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         Book,
-                        Author};
+                        Author,
+                        Publisher,
+                        Published_date};
                 rowLibraryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLibraryRow);
                 return rowLibraryRow;
@@ -417,6 +439,8 @@ namespace SysPro_Lab_07 {
                 this.columnId = base.Columns["Id"];
                 this.columnBook = base.Columns["Book"];
                 this.columnAuthor = base.Columns["Author"];
+                this.columnPublisher = base.Columns["Publisher"];
+                this.columnPublished_date = base.Columns["Published_date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -428,6 +452,10 @@ namespace SysPro_Lab_07 {
                 base.Columns.Add(this.columnBook);
                 this.columnAuthor = new global::System.Data.DataColumn("Author", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAuthor);
+                this.columnPublisher = new global::System.Data.DataColumn("Publisher", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPublisher);
+                this.columnPublished_date = new global::System.Data.DataColumn("Published_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPublished_date);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
@@ -436,6 +464,9 @@ namespace SysPro_Lab_07 {
                 this.columnBook.MaxLength = 50;
                 this.columnAuthor.AllowDBNull = false;
                 this.columnAuthor.MaxLength = 50;
+                this.columnPublisher.AllowDBNull = false;
+                this.columnPublisher.MaxLength = 50;
+                this.columnPublished_date.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -608,6 +639,28 @@ namespace SysPro_Lab_07 {
                     this[this.tableLibrary.AuthorColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Publisher {
+                get {
+                    return ((string)(this[this.tableLibrary.PublisherColumn]));
+                }
+                set {
+                    this[this.tableLibrary.PublisherColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime Published_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tableLibrary.Published_dateColumn]));
+                }
+                set {
+                    this[this.tableLibrary.Published_dateColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -772,35 +825,46 @@ namespace SysPro_Lab_07.DatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Book", "Book");
             tableMapping.ColumnMappings.Add("Author", "Author");
+            tableMapping.ColumnMappings.Add("Publisher", "Publisher");
+            tableMapping.ColumnMappings.Add("Published_date", "Published_date");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Library] WHERE (([Id] = @Original_Id) AND ([Book] = @Original_" +
-                "Book) AND ([Author] = @Original_Author))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Library] WHERE (([Id] = @Original_Id) AND ([Book] = @Original_Book) " +
+                "AND ([Author] = @Original_Author) AND ([Published_date] = @Original_Published_da" +
+                "te) AND ([Publisher] = @Original_Publisher))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Book", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Book", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Author", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Published_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Published_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Publisher", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Publisher", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Library] ([Id], [Book], [Author]) VALUES (@Id, @Book, @Author)" +
-                ";\r\nSELECT Id, Book, Author FROM Library WHERE (Id = @Id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Library] ([Id], [Book], [Author], [Published_date], [Publisher]) VAL" +
+                "UES (@Id, @Book, @Author, @Published_date, @Publisher);\r\nSELECT Id, Book, Author" +
+                ", Published_date, Publisher FROM Library WHERE (Id = @Id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Book", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Book", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Author", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Published_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Published_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Publisher", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Publisher", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Library] SET [Id] = @Id, [Book] = @Book, [Author] = @Author WHERE (" +
-                "([Id] = @Original_Id) AND ([Book] = @Original_Book) AND ([Author] = @Original_Au" +
-                "thor));\r\nSELECT Id, Book, Author FROM Library WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Library] SET [Id] = @Id, [Book] = @Book, [Author] = @Author, [Published_date] = @Published_date, [Publisher] = @Publisher WHERE (([Id] = @Original_Id) AND ([Book] = @Original_Book) AND ([Author] = @Original_Author) AND ([Published_date] = @Original_Published_date) AND ([Publisher] = @Original_Publisher));
+SELECT Id, Book, Author, Published_date, Publisher FROM Library WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Book", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Book", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Author", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Published_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Published_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Publisher", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Publisher", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Book", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Book", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Author", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Published_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Published_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Publisher", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Publisher", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -816,7 +880,7 @@ namespace SysPro_Lab_07.DatabaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Book, Author FROM dbo.Library";
+            this._commandCollection[0].CommandText = "SELECT Id, Book, Author, Published_date, Publisher FROM Library";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -877,7 +941,7 @@ namespace SysPro_Lab_07.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, string Original_Book, string Original_Author) {
+        public virtual int Delete(int Original_Id, string Original_Book, string Original_Author, System.DateTime Original_Published_date, string Original_Publisher) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
             if ((Original_Book == null)) {
                 throw new global::System.ArgumentNullException("Original_Book");
@@ -890,6 +954,13 @@ namespace SysPro_Lab_07.DatabaseDataSetTableAdapters {
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Author));
+            }
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_Published_date));
+            if ((Original_Publisher == null)) {
+                throw new global::System.ArgumentNullException("Original_Publisher");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Publisher));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -911,7 +982,7 @@ namespace SysPro_Lab_07.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Id, string Book, string Author) {
+        public virtual int Insert(int Id, string Book, string Author, System.DateTime Published_date, string Publisher) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Id));
             if ((Book == null)) {
                 throw new global::System.ArgumentNullException("Book");
@@ -924,6 +995,13 @@ namespace SysPro_Lab_07.DatabaseDataSetTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Author));
+            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(Published_date));
+            if ((Publisher == null)) {
+                throw new global::System.ArgumentNullException("Publisher");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Publisher));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -945,7 +1023,7 @@ namespace SysPro_Lab_07.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Id, string Book, string Author, int Original_Id, string Original_Book, string Original_Author) {
+        public virtual int Update(int Id, string Book, string Author, System.DateTime Published_date, string Publisher, int Original_Id, string Original_Book, string Original_Author, System.DateTime Original_Published_date, string Original_Publisher) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Id));
             if ((Book == null)) {
                 throw new global::System.ArgumentNullException("Book");
@@ -959,18 +1037,32 @@ namespace SysPro_Lab_07.DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Author));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(Published_date));
+            if ((Publisher == null)) {
+                throw new global::System.ArgumentNullException("Publisher");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Publisher));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Id));
             if ((Original_Book == null)) {
                 throw new global::System.ArgumentNullException("Original_Book");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Book));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Book));
             }
             if ((Original_Author == null)) {
                 throw new global::System.ArgumentNullException("Original_Author");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Author));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Author));
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_Published_date));
+            if ((Original_Publisher == null)) {
+                throw new global::System.ArgumentNullException("Original_Publisher");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Publisher));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -992,8 +1084,8 @@ namespace SysPro_Lab_07.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Book, string Author, int Original_Id, string Original_Book, string Original_Author) {
-            return this.Update(Original_Id, Book, Author, Original_Id, Original_Book, Original_Author);
+        public virtual int Update(string Book, string Author, System.DateTime Published_date, string Publisher, int Original_Id, string Original_Book, string Original_Author, System.DateTime Original_Published_date, string Original_Publisher) {
+            return this.Update(Original_Id, Book, Author, Published_date, Publisher, Original_Id, Original_Book, Original_Author, Original_Published_date, Original_Publisher);
         }
     }
     

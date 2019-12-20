@@ -117,17 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="idDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="idDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="bookDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Book</value>
+  </data>
+  <data name="authorDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <metadata name="Published_date.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Published_date.HeaderText" xml:space="preserve">
+    <value>Published_date</value>
+  </data>
+  <metadata name="Publisher.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Publisher.HeaderText" xml:space="preserve">
+    <value>Publisher</value>
+  </data>
   <metadata name="libraryBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>160, 17</value>
+  </metadata>
+  <metadata name="databaseDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="DBDataGridView.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
   <data name="DBDataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>316, 431</value>
+    <value>494, 431</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="DBDataGridView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -141,35 +168,14 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;DBDataGridView.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
-  <data name="idDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Id</value>
-  </data>
-  <data name="idDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
-  <data name="bookDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Book</value>
-  </data>
-  <data name="authorDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Author</value>
-  </data>
-  <metadata name="libraryBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>160, 17</value>
-  </metadata>
-  <metadata name="databaseDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="databaseDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="LoadButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="LoadButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 12</value>
+    <value>512, 13</value>
   </data>
   <data name="LoadButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 72</value>
@@ -190,16 +196,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LoadButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
-  <metadata name="libraryTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>325, 17</value>
-  </metadata>
   <data name="SaveButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="SaveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 90</value>
+    <value>512, 91</value>
   </data>
   <data name="SaveButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 72</value>
@@ -220,8 +223,38 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SaveButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DeleteRowButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DeleteRowButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>512, 169</value>
+  </data>
+  <data name="DeleteRowButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 72</value>
+  </data>
+  <data name="DeleteRowButton.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="DeleteRowButton.Text" xml:space="preserve">
+    <value>Delete Row</value>
+  </data>
+  <data name="&gt;&gt;DeleteRowButton.Name" xml:space="preserve">
+    <value>DeleteRowButton</value>
+  </data>
+  <data name="&gt;&gt;DeleteRowButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DeleteRowButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;DeleteRowButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="libraryTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>325, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -229,10 +262,31 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>432, 455</value>
+    <value>608, 455</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>HudMirKor_07</value>
+  </data>
+  <data name="&gt;&gt;libraryBindingSource.Name" xml:space="preserve">
+    <value>libraryBindingSource</value>
+  </data>
+  <data name="&gt;&gt;libraryBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;databaseDataSet.Name" xml:space="preserve">
+    <value>databaseDataSet</value>
+  </data>
+  <data name="&gt;&gt;databaseDataSet.Type" xml:space="preserve">
+    <value>SysPro_Lab_07.DatabaseDataSet, DatabaseDataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;libraryTableAdapter.Name" xml:space="preserve">
+    <value>libraryTableAdapter</value>
+  </data>
+  <data name="&gt;&gt;libraryTableAdapter.Type" xml:space="preserve">
+    <value>SysPro_Lab_07.DatabaseDataSetTableAdapters.LibraryTableAdapter, DatabaseDataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;idDataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>idDataGridViewTextBoxColumn</value>
@@ -252,23 +306,17 @@
   <data name="&gt;&gt;authorDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;libraryBindingSource.Name" xml:space="preserve">
-    <value>libraryBindingSource</value>
+  <data name="&gt;&gt;Published_date.Name" xml:space="preserve">
+    <value>Published_date</value>
   </data>
-  <data name="&gt;&gt;libraryBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Published_date.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;databaseDataSet.Name" xml:space="preserve">
-    <value>databaseDataSet</value>
+  <data name="&gt;&gt;Publisher.Name" xml:space="preserve">
+    <value>Publisher</value>
   </data>
-  <data name="&gt;&gt;databaseDataSet.Type" xml:space="preserve">
-    <value>SysPro_Lab_07.DatabaseDataSet, DatabaseDataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;libraryTableAdapter.Name" xml:space="preserve">
-    <value>libraryTableAdapter</value>
-  </data>
-  <data name="&gt;&gt;libraryTableAdapter.Type" xml:space="preserve">
-    <value>SysPro_Lab_07.DatabaseDataSetTableAdapters.LibraryTableAdapter, DatabaseDataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;Publisher.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>
